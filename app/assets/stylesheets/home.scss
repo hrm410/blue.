@@ -1,0 +1,44 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main-visual {
+	height: 100%;
+}
+
+.video-wrapper {
+	height: 100%;
+	width: 100%;
+}
+
+.main-video {
+	text-align: center;
+}
+
+.main-image {
+	margin-top: 60px;
+	background-color: #D5E5F1;
+	width:400px;
+	height: 350px;
+}
+
+.row-pb-md {
+	padding-bottom: 60px;
+}
+
+.jumbotron {
+	background-image: url("image1.jpeg");
+	opacity: 0.78;
+}
+
+.created_time {
+	position: absolute;
+    right: 25px;
+    padding-top: 4px
+}

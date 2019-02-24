@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blue</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-fixed-top">
+
+        <div class="container">
+          <div class="navbar-header">
+            <!-- logo img -->
+            <div class="logo">
+              <%= link_to(image_tag('blue2.png', :size =>"105x105"), top_path) %>
+            </div>
+            <!-- toggle -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <!-- top menu -->
+          <div class="collapse navbar-collapse pull-right" id="top-nav">
+            <% if user_signed_in? %>
+              <!-- main navbar -->
+              <ul class="nav navbar-nav">
+                <li>
+                  <%= link_to "Videos", posts_path %>
+                </li>
+                <li>
+                  <%= link_to "Users", users_path %>
+                </li>
+                <li>
+                  <%= link_to "New", new_post_path %>
+                </li>
+              </ul>
+              <!-- right navbar -->
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                </li>
+                  <!-- 検索フォーム -->
+                <li>
+                  <div class="search">
+                      <%= form_tag(search_path, :method => "get") do %>
+                        <%= text_field_tag :search %>
+                        <%= submit_tag "Search", :name => nil %>
+                      <% end %>
+                  </div>
+                </li>
+              </ul>
+            <% else %>
+              <!-- main navbar -->
+              <ul class="nav navbar-nav">
+                <li>
+                  <%= link_to "Videos", posts_path %>
+                </li>
+                <li>
+                  <%= link_to "Users", users_path %>
+                </li>
+              </ul>
+              <!-- right navbar -->
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <%= link_to "Log in", new_user_session_path %>
+                </li>
+                <li>
+                  <%= link_to "Sign up", new_user_registration_path %>
+                </li>
+              </ul>
+            <% end %>
+
+
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+              <h2>Contact us</h2>
+                <div class="social">
+                  <i class="fab fa-facebook-f"></i>
+                  <i class="fab fa-twitter"></i>
+                  <i class="fab fa-instagram"></i>
+                </div>
+          </div>
+          <div class="col-md-6 pull-right">
+            <h2>Tags</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <small class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              <!-- Copyright &copy; -->
+              <!-- <script>document.write(new Date().getFullYear());</script>  -->All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small>
+            <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

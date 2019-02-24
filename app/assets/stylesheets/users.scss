@@ -1,0 +1,36 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user_box {
+	width: 100%;
+	height: 250px;
+	background-color: white;
+	opacity: 0.78;
+	margin: 40px auto;
+}
+
+.user_video {
+	height: 250px;
+	background-color: white;
+	opacity: 0.78;
+	margin: 40px auto;
+}
+
+.top-user-container {
+	padding: 0 30px;
+}
+
+.user-container {
+	text-align:center;
+	margin: 50px 50px;
+}
+
+.user {
+	height: 240px;
+	width: 100%;
+}
+
+.follow-btn {
+	margin-top: 15px;
+}

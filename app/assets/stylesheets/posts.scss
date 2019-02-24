@@ -1,0 +1,38 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.video_box, .comments_box {
+	height: 100%;
+	background-color: white;
+	margin: 0 15px 40px 15px;
+}
+
+.video-container {
+	margin-bottom: 60px;
+	height: 350px;
+}
+
+img {
+	border-radius: 50%;
+}
+
+.profile_image {
+	padding-top: 15px;
+}
+.post_form {
+	margin: 30px 20px;
+}
+
+.like {
+	color: red;
+}
+
+.unlike {
+	color: gray;
+}
+
+.comment-text {
+	display: inline;
+}

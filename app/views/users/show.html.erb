@@ -1,0 +1,88 @@
+
+<div class="container">
+
+
+		<div class="row">
+			<h2><%= @user.name %></h2>
+			<div class="user_box">
+				<div class="col-md-5">
+					<div class="user">
+						<% if @user.profile_image_id != nil %>
+							<%= image_tag @user.profile_image_id.to_s, size:"150x150" %>
+						<% else %>
+							<%= image_tag　'/images/default.jpg' %>
+						<% end %>
+
+						<% if @user == current_user %>
+							<%= link_to "編集", edit_user_registration_path %>
+						<% end %>
+					</div>
+				</div>
+
+				<div class="col-md-7">
+						<% @user ||= current_user %>
+						<div class="stats">
+							<a href="<%= following_user_path(@user) %>">
+								<spam class="following_stat">
+									<%= @user.followings.count %>
+								</span>
+							    Following
+							</a>
+							<a href="<%= followers_user_path(@user) %>">
+								<span class="followers_stat">
+									<%= @user.followers.count %>
+								</span>
+							     Followers
+							</a>
+
+							<% if current_user != @user %>
+								<div class="follow_form">
+									<% if user_signed_in? %>
+										<% if current_user.following?(@user) %>
+											<%= form_for(current_user.following_relationships.find_by(following_id: @user.id), html: {method: :delete }) do |f| %>
+												<%= f.submit 'Unfollow', class: "btn btn-large btn-default active follow-btn" %>
+											<% end %>
+										<% else %>
+											<%= form_for(current_user.following_relationships.build(following_id: @user.id)) do |f| %>
+												<div><%= f.hidden_field :following_id %></div>
+												<%= f.submit 'Follow', class: "btn btn-large btn-primary follow-btn" %>
+											<% end %>
+									<% end %>
+									<% end %>
+								</div>
+							<% end %>
+						</div>
+						<div class="user_message">
+							<%= @user.message %>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<% @user.posts.each do |post| %>
+				<div class="user_video">
+					<div class="col-md-7">
+						<div class="video">
+							<h3><%= link_to post.title, post_path(post.id) %></h3>
+							<%= video_tag (post.video), controls: true, size:"250x140" %>
+							<div class="delete_post">
+								<% if user_signed_in? %>
+									<% if post.user_id == current_user.id %>
+										<%= link_to "delete", post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+										<%= link_to "編集", edit_post_path(post.id) %>
+									<% end %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<%= link_to post.title, post_path(post.id) %>
+						<%= post.content %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+	</div>
+</div>

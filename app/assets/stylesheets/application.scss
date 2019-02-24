@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+html {
+	font-size: 15px;
+}
+
+header {
+	height: 100px;
+}
+
+.navbar-fixed-top {
+	background-color: white;
+	opacity: 0.78;
+	height: 100px;
+}
+
+p, a {
+	font-family: 'Baskerville', 'DidotLTStd-Roman', 'Baskerville', 'PeignotLTStd-Light', 'Lucida Console', 'Gungsuh', 'MingLiU', 'Chick';
+	font-size: 18px;
+}
+
+h2 {
+	margin: 45px 20px;
+	font-size: 38px;
+	font-family: 'Baskerville', 'DidotLTStd-Roman', 'Montserrat', 'PeignotLTStd-Light', 'Lucida Console', 'Gungsuh', 'MingLiU', 'Chick';
+}
+
+
+
+.post_content {
+	padding-top: 20px;
+}
+
+.border-form {
+	max-width: 600px;
+	padding: 25px 30px 25px;
+	margin: 60px auto;
+	background-color: white;
+	-moz-border-radius: 1px;
+}
+
+body {
+	background-color: #D9E5F2;
+}
+
+li a{
+	color: black;
+	margin: 30px 15px;
+}
+
+.search {
+	margin-top: 40px;
+}
+
+.border-form input {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+
+.sign_up_form, .sign_in_form, .edit_form {
+	margin: 30px 20px;
+}
+
+.social {
+	font-size: 28px;
+	margin: 0 25px;
+}
+
+footer {
+	background-color: white;
+	opacity: 0.78;
+    bottom: 0;
+    width: 100%;
+}

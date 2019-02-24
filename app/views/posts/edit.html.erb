@@ -1,0 +1,23 @@
+<div class="border-form">
+	<h2>Edit your post</h2>
+	<div class="post_form">
+		<%= form_for(@post) do |f| %>
+			<h4>Title</h4>
+			<%= f.text_field :title %>
+
+			<h4>Content</h4>
+			<%= f.text_area :content %>
+
+			<!-- video uploader -->
+			<h4>Upload a video</h4>
+			<%= f.file_field :video %>
+			<!-- tags -->
+			<h4>Tags</h4>
+		  	<%= f.label :post, :tag_list %>
+		    <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %>
+
+			<%= f.submit "Upload" %>
+
+		<% end %>
+	</div>
+</div>
