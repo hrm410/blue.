@@ -72,5 +72,5 @@ gem 'kaminari','~> 1.1.1'
 gem 'pry-rails'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.20.0'
 end
