@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: blue-videos
+  api_key: '262332253886247'
+  api_secret: p0L_sXOg84GsWQ_uUvTMOoACUzo
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: blue-videos
+  api_key: '262332253886247'
+  api_secret: p0L_sXOg84GsWQ_uUvTMOoACUzo
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: blue-videos
+  api_key: '262332253886247'
+  api_secret: p0L_sXOg84GsWQ_uUvTMOoACUzo
+  enhance_image_tag: true
+  static_file_support: false

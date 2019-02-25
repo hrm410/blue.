@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   devise_for :users, :controllers => {
     :registrations => 'registrations'
   }
@@ -21,5 +24,9 @@ Rails.application.routes.draw do
   get "top" => "home#top"
   get "search" => "home#search"
   get "/tag_search/:tag_name" =>'posts#tag_search', as: 'tag_search'
+  get "inquiry" => "inquiry#index" #入力画面
+  post "inquiry/confirm" => "inquiry#confirm" #確認画面
+  post "inquiry/thanks" => "inquiry#thanks" #送信完了画面s
+
 
 end

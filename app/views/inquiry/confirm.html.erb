@@ -1,0 +1,31 @@
+
+<div class="border-form">
+    <h2>お問合せ</h2>
+
+    <div class="contact_form">
+    	<%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
+	        <div class="field">
+	        	<h4>お名前(必須)</h4>
+	         	<%= f.hidden_field :name %>
+	         	<%= @inquiry.name %>
+	         </div>
+
+	          <div class="field">
+	          	<h4>メールアドレス(必須)</h4>
+	            <%= f.hidden_field :email %>
+	            <%= @inquiry.email %>
+	          </div>
+
+	          <div class="field">
+	          	<h4>お問い合わせ内容</h4>
+	            <%= f.hidden_field :message %>
+	            <%= @inquiry.message %>
+	          </div>
+
+	          <div class="actions">
+	            <%= f.submit "送信", class: "btn btn-primary" %>
+	          </div>
+        <% end %>
+      </div>
+
+</div>
