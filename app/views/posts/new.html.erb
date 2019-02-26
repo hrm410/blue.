@@ -1,5 +1,10 @@
 <div class="border-form">
 	<h2>Create a new video</h2>
+	<% @post.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+	<% end %>
+
+
 	<div class="post_form">
 		<%= form_for(@post) do |f| %>
 		<!-- title-->
@@ -14,7 +19,7 @@
 		    <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %>
 		<!--  video-->
 			<h4>Upload a Video</h4>
-			cl_upload_tag(:video)
+			<%= f.file_field(:video) %>
 
 
 			<%= f.submit "Upload" %>

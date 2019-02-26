@@ -16,9 +16,17 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		post = Post.new(post_params)
-		post.user_id = current_user.id
-		if  post.save
+		@post = Post.new(post_params)
+		@post.user_id = current_user.id
+
+		if params[:video].present?
+			preloaded = Cloudinary::PreloadedFile.new(params[:video])
+			raise "Invalid upload signature" if !preloaded.valid?
+  			@post.video = preloaded.identifier
+		end
+
+
+		if  @post.save
 			redirect_to posts_path
 		else
 		   render new_post_path
