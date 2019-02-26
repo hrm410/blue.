@@ -15,7 +15,7 @@ class PostCommentsController < ApplicationController
 			comment.destroy
 			redirect_to post_path(params[:post_id])
 		else
-			redirect_to top_path
+			redirect_to root_path
 		end
 	end
 

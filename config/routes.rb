@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'home#top'
   get 'inquiry/index'
   get 'inquiry/confirm'
   get 'inquiry/thanks'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
 
-  get "top" => "home#top"
+ 
   get "search" => "home#search"
   get "/tag_search/:tag_name" =>'posts#tag_search', as: 'tag_search'
   get "inquiry" => "inquiry#index" #入力画面
