@@ -1,12 +1,15 @@
 
 <div class="container">
-	<div class="col-md-12">
-
-		<h2><%= @post.title %></h2>
-		<div class="row video_box">
-				<div class="col-md-7">
-					<div class="video">
-						<%= video_tag (@post.video), controls: true, size: "250x140" %>
+	<div class="row">
+		<div class="col-md-10">
+			<h2 class="show_post_title"><%= @post.title %></h2>
+		</div>
+	</div>
+	<div class="row video_box">
+		<div class="col-md-12">
+				<div class="col-md-10">
+					<div class="show_video">
+						<%= video_tag (@post.video), controls: true, size:"900x500", autoplay: true %>
 						<% if @post.favorited_by?(current_user) %>
 							<div>
 								<%= link_to post_likes_path(@post), method: :delete do %>
@@ -20,19 +23,24 @@
 									<i class="fas fa-heart unlike"></i>
 									<%= @post.likes.count %>いいね
 								<% end %>
-							</div>
-						<% end %>
 
-						<% if @post.user_id == current_user.id %>
-							<%= link_to "delete", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-							<%= link_to "編集", edit_post_path(@post.id) %>
+								<div class="pull-right">
+									<% if @post.user_id == current_user.id %>
+										<%= link_to "delete", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+										<%= link_to "編集", edit_post_path(@post.id) %>
+									<% end %>
+						</div>
+							</div>
 						<% end %>
 					</div>
 				</div>
-				<div class="col-md-5">
-						<div class="video_title">
-							<%= @post.user.name %>
+				<div class="col-md-2 show_post_detail">
+						<div class="user_profile_image">
+							<%= image_tag @post.user.profile_image_id.to_s, size:"150x150" %>
 						</div>
+						<h2 class="user_name">
+							<%= @post.user.name %>
+						</h2>
 						<div class="video_content">
 							<%= @post.content %>
 						</div>
@@ -45,39 +53,42 @@
 						</div>
 				</div>
 		</div>
+	</div>
 
+	<div class="row">
+		<div class="col-md-10">
+			<%= form_for [@post, @post_comment] do |f| %>
+				<%= f.text_area :comment,  placeholder: "コメントを入力してください" ,  row:"4" , cols: "120", class: "text_comment"%>
+				<%= f.submit "送信", class: "btn btn-lg" %>
+			<% end %>
+		</div>
+	</div>
 
+	<div class="row">
+		<div class="col-md-12">
 			<h2>Comments</h2>
 			<div class="comments_box">
 				<ol>
 					<% @post.post_comments.each do |post_comment| %>
 						<li class="comment">
-							<div class="comment-avatar">
-								<div class="avatar">
+							<div class="balloon5">
+  								<div class="comment-text">
 									<%= image_tag @user.profile_image_id.to_s, size:"50x50" %>
-								</div>
-								<div class="comment-text">
-									<%= post_comment.user.name %>  : 
-									<%= post_comment.comment %>
-
+									<div class="balloon1-left">
+										<%= post_comment.comment %>
+									</div>
 									<% if post_comment.user == current_user %>
 										<%= link_to "delete", post_post_comment_path(@post.id, post_comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 									<% end %>
 								</div>
+								<p class="comment_user_name">
+									<%= post_comment.user.name %>
+								</p>
 							</div>
 						</li>
 					<% end %>
 				</ol>
 			</div>
-
-			<%= form_for [@post, @post_comment] do |f| %>
-				<div class="row">
-					<div class="col-sm-12">
-						<%= f.text_area :comment, size: "80x10", placeholder: "コメントを入力してください" %>
-					</div>
-					<%= f.submit "送信", class: "btn btn-lg pull-right" %>
-				</div>
-			<% end %>
-
+		</div>
 	</div>
 </div>

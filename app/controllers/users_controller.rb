@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@posts = @user.posts.page(params[:page]).reverse_order
 	end
 
 	def create
@@ -15,12 +16,12 @@ class UsersController < ApplicationController
 
 	def following
 		@user = User.find(params[:id])
-		@users = @user.followings
+		@users = @user.followings.page(params[:page]).reverse_order
 	end
 
 	def followers
 		@user = User.find(params[:id])
-		@users = @user.followers
+		@users = @user.followers.page(params[:page]).reverse_order
 	end
 
 	def current_user?(user)
