@@ -11,29 +11,27 @@
 			</div>
 		</div>
 	</div>
-</div>
 <!-- videos -->
-<div class="container">
 	<div class="row row-pb-md">
 		<div class="col-md-12">
 			<h2>Videos</h2>
 			<% @posts.last(6).each do |post| %>
 				<div class="col-md-4 video-container">
-						<h4><%= link_to post.title, post_path(post.id) %></h4>
-						<%= video_tag (post.video), controls: true, size:"350x240" %><br>
-						<div class="video_detail">
-							<div class="profile_image">
-								<% if post.user.profile_image_id != nil %>
+					<h4><%= link_to post.title, post_path(post.id) %></h4>
+					<%= video_tag (post.video), controls: true, size:"350x240" %><br>
+					<div class="video_detail">
+						<div class="profile_image">
+							<% if post.user.profile_image_id != nil %>
 								<%= image_tag post.user.profile_image_id.to_s, size:"35x35" %>
-								<% else %>
-									<%= image_tag　'/images/default.jpg' %>
-								<% end %>
-								<%= link_to post.user.name, user_path(post.user_id) %>
-								<span class="created_time">
-								<%= post.created_at.strftime("%Y/%m/%d") %>
+							<% else %>
+								<%= image_tag　'/images/default.jpg' %>
+							<% end %>
+							<%= link_to post.user.name, user_path(post.user_id) %>
+							<span class="created_time">
+							<%= post.created_at.strftime("%Y/%m/%d") %>
 							</span>
-							</div>
 						</div>
+					</div>
 				</div>
 			<% end %>
 			<div class="row pull-right">
@@ -41,9 +39,7 @@
 			</div>
 		</div>
 	</div>
-</div>
 <!-- users -->
-<div class="container">
 	<div class="row row-pb-md">
 		<div class="col-md-12">
 			<h2>Users</h2>
@@ -62,7 +58,6 @@
 							<div>
 								<%= user.message %>
 							</div>
-
 							<% if user == current_user %>
 								<%= link_to "編集", edit_user_registration_path %>
 							<% end %>
@@ -75,14 +70,11 @@
 			</div>
 		</div>
 	</div>
-</div>
+	<% if user_signed_in? %>
 
-<% if user_signed_in? %>
-
-<% else %>
-	<div class="jumbotron">
-		<!-- sign up form -->
-		<div class="container">
+	<% else %>
+		<div class="jumbotron">
+			<!-- sign up form -->
 			<div class="row row-pb-md">
 				<div class="col-md-12">
 			<!--  sign up form-->
@@ -91,36 +83,36 @@
 
 					    <div class="sign_up_form">
 					        <%= form_for(:user, as: resource_name, url: registration_path(resource_name)) do |f| %>
-					          <%= devise_error_messages! %>
+					         	<%= devise_error_messages! %>
 
-					          <div class="field">
-					            <%= f.text_field :name, autofocus: true, placeholder: "Name" %>
-					          </div>
+					          	<div class="field">
+					            	<%= f.text_field :name, autofocus: true, placeholder: "Name" %>
+					          	</div>
 
 
-					          <div class="field">
-					            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address" %>
-					          </div>
+					          	<div class="field">
+					            	<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address" %>
+					          	</div>
 
-					          <div class="field">
-					            <% if @minimum_password_length %>
-					            <em>(<%= @minimum_password_length %> characters minimum)</em>
-					            <% end %><br />
-					            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
-					          </div>
+					          	<div class="field">
+					            	<% if @minimum_password_length %>
+					            		<em>(<%= @minimum_password_length %> characters minimum)</em>
+					            	<% end %><br />
+					            	<%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+					          	</div>
 
-					          <div class="field">
-					            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation" %>
-					          </div>
+					          	<div class="field">
+					            	<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation" %>
+					          	</div>
 
-					          <div class="field">
-					            <%= f.label :profile_image %>
-					            <%= f.file_field :profile_image_id %>
-					          </div>
+					          	<div class="field">
+					            	<%= f.label :profile_image %>
+					            	<%= f.file_field :profile_image_id %>
+					          	</div>
 
-					          <div class="actions">
-					            <%= f.submit "Sign up" %>
-					          </div>
+					          	<div class="actions">
+					            	<%= f.submit "Sign up" %>
+					          	</div>
 					        <% end %>
 					        <div>
 					        	<%= link_to "Log in", new_user_session_path %>
@@ -132,6 +124,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-<% end %>
+	<% end %>
+</div>
+</div>
