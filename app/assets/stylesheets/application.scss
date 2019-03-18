@@ -24,9 +24,8 @@ header {
 }
 
 .navbar-fixed-top {
-	background-color: white;
+	background-color: #C4D3E6;
 	opacity: 0.78;
-	height: 100px;
 }
 
 p, a {
@@ -40,7 +39,27 @@ h2 {
 	font-family: 'Baskerville', 'DidotLTStd-Roman', 'Montserrat', 'PeignotLTStd-Light', 'Lucida Console', 'Gungsuh', 'MingLiU', 'Chick';
 }
 
+.icon-bar {
+	display: block;
+	width: 25px;
+	height: 2px;
+	margin: 5px auto;
+	background-color: gray;
+}
 
+.navbar-nav {
+	background-color: #C4D3E6;
+	opacity: 0.78;
+}
+
+.btn-link {
+  color: black;
+}
+
+.btn-ghost {
+  background: #F7F9FC;
+  color: black;
+}
 
 .post_content {
 	padding-top: 20px;
@@ -55,7 +74,7 @@ h2 {
 }
 
 body {
-	background-color: #D9E5F2;
+	background-color: #F7F9FC;
 }
 
 li a{
@@ -74,18 +93,66 @@ li a{
 	padding: 7px 9px;
 }
 
+.search-wrapper {
+  position: relative;
+  background: darken(#3498db, 15%);
+  border-radius: 20px;
+  transform-origin: 100% 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: 250ms ease;
+  
+  &.focused {
+    width: 200px;
+    
+    input {
+      padding: 0 40px 0 13px;
+      width: 100%;
+      transform: scale(1);
+    }
+  }
+  
+  input {
+    background: transparent;
+    border: 0;
+    color: white;
+    outline: none;
+    height: 40px;
+    width: 0;
+    overflow: hidden;
+    font-weight: 100;
+    transform: scale(0);
+    transform-origin: 0 50%;
+    transition: 275ms ease;
+    
+    &::placeholder {
+      color: #cccccc;
+    }
+  }
+  
+  i {
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+  }
+}
+
 .sign_up_form, .sign_in_form, .edit_form {
 	margin: 30px 20px;
 }
 
-.social {
+.h2-footer {
+	color: white;
 	font-size: 28px;
-	margin: 0 25px;
+	margin: 30px 25px;
 }
 
 footer {
-	background-color: white;
-	opacity: 0.78;
+	background-color: #3B404A;
     bottom: 0;
     width: 100%;
 }

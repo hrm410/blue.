@@ -1,12 +1,14 @@
 
 <div class="container">
-	<div class="col-md-12">
-		<div class="row row-pb-md">
+	<div class="row row-pb-md">
+		<div class="col-md-12">
 			<h2>Videos</h2>
 			<% @posts.each do |post| %>
 				<div class="col-md-4 video-container">
-						<h4><%= link_to post.title, post_path(post.id) %></h4>
-						<%= video_tag (post.video), controls: true, size:"350x240" %><br>
+						<div>
+							<h4><%= link_to post.title, post_path(post.id), class: "title_hover" %></h4>
+						</div>
+						<%= video_tag (post.video), controls: true, style: "width:100%" %><br>
 						<div class="video_detail">
 							<div class="profile_image">
 								<% if post.user.profile_image_id != nil %>

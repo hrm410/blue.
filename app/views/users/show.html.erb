@@ -5,7 +5,7 @@
 			<div class="col-md-5">
 				<div class="show_user">
 					<% if @user.profile_image_id != nil %>
-						<%= image_tag @user.profile_image_id.to_s, size:"300x300" %>
+						<%= image_tag @user.profile_image_id.to_s, size:"250x250" %>
 					<% else %>
 						<%= image_tag　'/images/default.jpg' %>
 					<% end %>
@@ -45,7 +45,7 @@
 										<div><%= f.hidden_field :following_id %></div>
 										<%= f.submit 'Follow', class: "btn btn-large btn-primary follow-btn" %>
 									<% end %>
-							<% end %>
+								<% end %>
 							<% end %>
 						</div>
 					<% end %>
@@ -57,25 +57,23 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row row-pb-md">
 		<div class="col-md-12">
-			<div class="row row-pb-md">
-				<h2>Videos</h2>
-				<% @user.posts.each do |post| %>
-					<div class="col-md-4 video-container">
-						<h4><%= link_to post.title, post_path(post.id) %></h4>
-						<%= video_tag (post.video), controls: true, size:"350x240" %><br>
-						<div class="video_detail">
-							<div class="profile">
-								<span class="created_time">
-									<%= post.created_at.strftime("%Y/%m/%d") %>
-								</span>
-							</div>
+			<h2>Videos</h2>
+			<% @user.posts.each do |post| %>
+				<div class="col-md-4 video-container">
+					<h4><%= link_to post.title, post_path(post.id) %></h4>
+					<%= video_tag (post.video), controls: true, size:"350x240" %><br>
+					<div class="video_detail">
+						<div class="profile">
+							<span class="created_time">
+								<%= post.created_at.strftime("%Y/%m/%d") %>
+							</span>
 						</div>
 					</div>
-				<% end %>
-			</div>
+				</div>
+			<% end %>
 		</div>
-		<%= paginate @posts, class: "paginate" %>
 	</div>
+	<%= paginate @posts, class: "paginate" %>
 </div>

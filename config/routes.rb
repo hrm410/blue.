@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'home#top'
-  get 'inquiry/index'
-  get 'inquiry/confirm'
-  get 'inquiry/thanks'
+  # get 'inquiry/index'
+  # get 'inquiry/confirm'
+  # get 'inquiry/thanks'
   devise_for :users, :controllers => {
     :registrations => 'registrations'
   }
