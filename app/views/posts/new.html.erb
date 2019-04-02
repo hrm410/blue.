@@ -14,14 +14,14 @@
 			<h4>Text</h4>
 			<%= f.text_area :content %>
 		<!-- tags -->
-			<h4>Tags</h4>
+			<h4>Tags</h4><h5>(複数タグをつける場合はカンマ,で区切ってください)</h5>
 		  	<%#= f.label :post, :tag_list %>
-		    <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %>
+		    <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control", "data-role" => "tagsinput" %>
 		<!--  video-->
 			<h4>Upload a Video</h4>
 			<%= f.file_field(:video) %>
 
-
+			<br>
 			<%= f.submit "Upload" %>
 
 		<% end %>

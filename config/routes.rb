@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'home#top'
-  # get 'inquiry/index'
-  # get 'inquiry/confirm'
-  # get 'inquiry/thanks'
+
   devise_for :users, :controllers => {
     :registrations => 'registrations'
   }
@@ -20,8 +18,6 @@ Rails.application.routes.draw do
   	resource :likes, only: [:create, :destroy]
   end
 
-
- 
   get "search" => "home#search"
   get "/tag_search/:tag_name" =>'posts#tag_search', as: 'tag_search'
   get "inquiry" => "inquiry#index" #入力画面

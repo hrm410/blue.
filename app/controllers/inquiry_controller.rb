@@ -9,7 +9,7 @@ class InquiryController < ApplicationController
   	# 入力チェック
   	@inquiry = Inquiry.new(inquiry_params)
   	if @inquiry.valid?
-  		# ok画面を表示
+  		# ok 画面を表示
   		render :action => 'confirm'
   	else
   		# NG 入力画面を再表示
@@ -20,10 +20,9 @@ class InquiryController < ApplicationController
   def thanks
   	# メールを送信
   	@inquiry = Inquiry.new(inquiry_params)
-  	InquiryMailer.received_email(@inquiry).deliver
-
-  	# 完了画面を表示
-  	render :action => 'thanks'
+  	   InquiryMailer.received_email(@inquiry).deliver
+    	# 完了画面を表示
+    	render :action => 'thanks'
   end
 
   private

@@ -73,7 +73,16 @@
 		</div>
 	</div>
 	<% if user_signed_in? %>
-
+	<div class="row row-pb-md">
+		<div class="col-md-12">
+			<h2>Tags</h2>
+			<div class="post_tags">
+				<% @tags.each do |tag| %>
+					<%= link_to tag, tag_search_path(tag.name), class: "label label-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 	<% else %>
 		<div class="jumbotron">
 			<!-- sign up form -->

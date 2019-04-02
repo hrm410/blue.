@@ -11,6 +11,7 @@ class Post < ApplicationRecord
 		likes.where(user_id: user.id).exists?
 	end
 
+	#検索フォーム
 	def self.search(search)
 		if search
 		   Post.where(['title LIKE ?', "%#{search}%"])

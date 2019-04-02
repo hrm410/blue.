@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 		@posts = Post.all
 		@post = Post.last
 		@users = User.all
+		@tags = ActsAsTaggableOn::Tag.most_used
 	end
 
 	def search

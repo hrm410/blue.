@@ -5,23 +5,23 @@
 			<h2>Videos</h2>
 			<% @posts.each do |post| %>
 				<div class="col-md-4 video-container">
-						<div>
-							<h4><%= link_to post.title, post_path(post.id), class: "title_hover" %></h4>
-						</div>
-						<%= video_tag (post.video), controls: true, style: "width:100%" %><br>
-						<div class="video_detail">
-							<div class="profile_image">
-								<% if post.user.profile_image_id != nil %>
-								<%= image_tag post.user.profile_image_id.to_s, size:"35x35" %>
-								<% else %>
-									<%= image_tag　'/images/default.jpg' %>
-								<% end %>
-								<%= link_to post.user.name, user_path(post.user_id) %>
-								<span class="created_time">
-								<%= post.created_at.strftime("%Y/%m/%d") %>
+					<div>
+						<h4><%= link_to post.title, post_path(post.id), class: "title_hover" %></h4>
+					</div>
+					<%= video_tag (post.video), controls: true, style: "width:100%" %><br>
+					<div class="video_detail">
+						<div class="profile_image">
+							<% if post.user.profile_image_id != nil %>
+							<%= image_tag post.user.profile_image_id.to_s, size:"35x35" %>
+							<% else %>
+								<%= image_tag　'/images/default.jpg' %>
+							<% end %>
+							<%= link_to post.user.name, user_path(post.user_id) %>
+							<span class="created_time">
+							<%= post.created_at.strftime("%Y/%m/%d") %>
 							</span>
-							</div>
 						</div>
+					</div>
 				</div>
 			<% end %>
 		</div>

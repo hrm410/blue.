@@ -17,19 +17,4 @@ $(document).on('turbolinks:load', function() {
 		}
 	);
 
-	$('.new-show').click(function() {
-		$('.post_form').fadeIn();
-	});
-
-// 	let searchWrapper = document.querySelector('.search-wrapper'),
-//     searchInput = document.querySelector('.search-input');
-
-// 	document.addEventListener('click', (e) => {
-// 	  if (~e.target.className.indexOf('search')) {
-// 	    searchWrapper.classList.add('focused');
-// 	    searchInput.focus();
-// 	  } else {
-// 	    searchWrapper.classList.remove('focused');
-// 	  }
-// })
 });

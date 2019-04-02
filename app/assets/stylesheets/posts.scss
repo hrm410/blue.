@@ -13,8 +13,17 @@
 	margin: 30px auto;
 }
 
-.show_post_detail {
-	height: 500px;
+.posts_show_image {
+	width: 150px;
+	height: 150px;
+}
+
+.user_profile_image {
+	text-align: center;
+}
+
+.posts_show_name {
+	font-size: 21px;
 }
 
 .user_name {
@@ -24,13 +33,13 @@
 }
 
 .text_comment {
-	    vertical-align: bottom
+	vertical-align: bottom
 }
 
 .balloon1-left {
   position: relative;
   display: inline-block;
-  margin: 1.5em 0 1.5em 15px;
+  margin: 1.5em 0 0 15px;
   padding: 7px 10px;
   min-width: 120px;
   max-width: 100%;
@@ -75,8 +84,27 @@ img {
 }
 
 .comment_user_name {
-	font-size: 27px;
+	font-size: 22px;
+	padding-left: 5px;
 }
+
 .comment-text {
 	display: inline;
+}
+
+.comment_form {
+	width: 100%;
+}
+
+/* スマートフォンサイズ(425px)程度の画面の大きさ以下 */
+@media screen and (max-width:425px) {
+.posts_show_image {
+    width: 35px;
+    height: 35px;
+	}
+
+.user_profile_image {
+	text-align: left;
+	}
+
 }

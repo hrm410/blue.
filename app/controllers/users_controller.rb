@@ -10,10 +10,6 @@ class UsersController < ApplicationController
 		@posts = @user.posts.page(params[:page]).reverse_order
 	end
 
-	def create
-	end
-
-
 	def following
 		@user = User.find(params[:id])
 		@users = @user.followings.page(params[:page]).reverse_order

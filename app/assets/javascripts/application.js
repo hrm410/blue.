@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require cloudinary
 //= require_tree .
+//= require bootstrap-tagsinput
 

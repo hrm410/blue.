@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user_box {
-	width: 100%;
-	height: 250px;
-	opacity: 0.78;
-	margin: 40px auto;
+
+.show_user {
+	text-align: center;
+}
+
+.users_follow {
+	margin-top: 60px;
 }
 
 .top-user-container {
@@ -25,4 +27,11 @@
 
 .follow-btn {
 	margin-top: 15px;
+}
+
+/* スマートフォンサイズ(425px)程度の画面の大きさ以下 */
+@media screen and (max-width:425px) {
+.users_follow {
+    text-align: center;
+    }
 }

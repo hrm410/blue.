@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *= require_tree .
  *= require_self
+ *= require bootstrap-tagsinput
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -23,9 +24,10 @@ header {
 	height: 100px;
 }
 
-.navbar-fixed-top {
+.nav-bar-nav {
 	background-color: #C4D3E6;
 	opacity: 0.78;
+	margin-bottom: 15px;
 }
 
 p, a {
@@ -53,12 +55,12 @@ h2 {
 }
 
 .btn-link {
-  color: black;
+  	color: black;
 }
 
 .btn-ghost {
-  background: #F7F9FC;
-  color: black;
+	  background: #F7F9FC;
+	  color: black;
 }
 
 .post_content {
@@ -82,64 +84,7 @@ li a{
 	margin: 30px 15px;
 }
 
-.search {
-	margin-top: 40px;
-}
 
-.border-form input {
-	font-size: 16px;
-	height: auto;
-	margin-bottom: 15px;
-	padding: 7px 9px;
-}
-
-.search-wrapper {
-  position: relative;
-  background: darken(#3498db, 15%);
-  border-radius: 20px;
-  transform-origin: 100% 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: 250ms ease;
-  
-  &.focused {
-    width: 200px;
-    
-    input {
-      padding: 0 40px 0 13px;
-      width: 100%;
-      transform: scale(1);
-    }
-  }
-  
-  input {
-    background: transparent;
-    border: 0;
-    color: white;
-    outline: none;
-    height: 40px;
-    width: 0;
-    overflow: hidden;
-    font-weight: 100;
-    transform: scale(0);
-    transform-origin: 0 50%;
-    transition: 275ms ease;
-    
-    &::placeholder {
-      color: #cccccc;
-    }
-  }
-  
-  i {
-    position: absolute;
-    color: white;
-    font-size: 18px;
-    top: 50%;
-    right: 13px;
-    transform: translateY(-50%);
-  }
-}
 
 .sign_up_form, .sign_in_form, .edit_form {
 	margin: 30px 20px;
@@ -155,4 +100,71 @@ footer {
 	background-color: #3B404A;
     bottom: 0;
     width: 100%;
+    padding-bottom: 60px;
+}
+
+.contact_link {
+	margin-left: 25px;
+}
+
+/*検索フォーム*/
+.search-box {
+	transition: width 0.6s, border-radius 0.6s, background 0.6s, box-shadow 0.6s;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	background: #ebebeb;
+}
+
+.search-box + label .search-icon {
+	color: black;
+}
+
+.search-box:hover {
+	color: white;
+	background: #c8c8c8;
+	box-shadow: 0 0 0 5px #3d4752;
+}
+
+.search-box:hover + label .search-icon {
+	color: white;
+}
+
+.search-box:focus {
+	transition: width 0.6s cubic-bezier(0, 1.22, 0.66, 1.39), border-radius 0.6s, background 0.6s;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	padding-left: 15px;
+	cursor: text;
+	width: 300px;
+	border-radius: auto;
+	background: #ebebeb;
+	color: black;
+}
+
+.search-box:focus + label .search-icon {
+	color: black;
+}
+
+.search-box:not(:focus) {
+	text-indent: -5000px;
+}
+
+#search-submit {
+	position: relative;
+	left: -5000px;
+}
+
+.submit-li {
+	list-style: none;
+}
+
+.search-icon {
+	position: relative;
+	left: -30px;
+	color: white;
+	cursor: pointer;
 }
