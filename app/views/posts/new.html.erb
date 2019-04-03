@@ -19,7 +19,7 @@
 		    <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control", "data-role" => "tagsinput" %>
 		<!--  video-->
 			<h4>Upload a Video</h4>
-			<%= f.file_field :video, :accept => 'video/*', :width=>250, :height=>250, :crop=>"fit" %>
+			<%= f.file_field :video, :accept => 'video/*', :width=>350, :crop=>"fit" %>
 
 			<br>
 			<%= f.submit "Upload" %>
