@@ -70,7 +70,7 @@
         </nav>
         <% if user_signed_in? %>
             <!--  検索フォーム  -->
-              <div class="search pull-right">
+              <div class="search">
                 <%= form_tag(search_path, :method => "get", class:"search-container") do %>
                   <%= text_field_tag :search, "", id:"search-box", class:"search-box" %>
                     <label for="search-box"><i class="fa fa-search glyphicon glyphicon-search search-icon"></i></label>

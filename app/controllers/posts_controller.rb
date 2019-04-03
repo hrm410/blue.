@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
 		if params[:video].present?
 			preloaded = Cloudinary::PreloadedFile.new(params[:video])
-			raise "Invalid upload signature" if !preloaded.valid?
+			"Invalid upload signature" if !preloaded.valid?
   			@post.video = preloaded.identifier
 		end
 
