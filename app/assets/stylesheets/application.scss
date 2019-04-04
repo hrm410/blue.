@@ -173,3 +173,10 @@ footer {
 	color: white;
 	cursor: pointer;
 }
+
+/* スマートフォンサイズ(425px)程度の画面の大きさ以下 */
+@media screen and (max-width:425px) {
+	.search {
+	right: 0%;
+	}
+}
