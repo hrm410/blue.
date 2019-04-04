@@ -177,6 +177,11 @@ footer {
 /* スマートフォンサイズ(425px)程度の画面の大きさ以下 */
 @media screen and (max-width:425px) {
 	.search {
-	right: 0%;
+		right: 0%;
+	}
+
+	.main-video-size, .show-video-size {
+		height: 100%;
 	}
 }
+
