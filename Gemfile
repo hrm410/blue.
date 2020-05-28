@@ -67,7 +67,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 
 gem 'pry-rails'
 
